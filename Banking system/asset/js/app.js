@@ -59,24 +59,30 @@ let account3 = {
             else if(dvalue>1000000){
                 alert("you have passed the limited amount please try again")
             }
-            account1.balance = account1.balance + depositValue;
-        } else if (choice === 2) {
+            account1.balance = parseInt(account1.balance) + depositValue;
+            console.log("successfully done")
+        } 
+        else if (choice === 2) {
             
             let wValue = prompt("How much do you want to withdraw.");
             wValue = parseInt(wValue);
             if (wValue > account1.balance) {
                 alert("You don't have sufficient balance");
             } 
-            else if (wValue>10,000){
-                alert("you have passed your limit please try again")
+            else if (wValue>10,000 || wValue<50){
+                alert("you have passed your limit please try again");
             }
             
             else {
                 account1.balance = account1.balance - wValue;
+                console.log("successfully done");
             }
-        } else if (choice === 3) {
+            
+        } 
+        else if (choice === 3) {
             alert("Your account balance is " + account1.balance);
-        } else if (choice === 4) {
+        } 
+        else if (choice === 4) {
             let transferNo = prompt("Enter the transfer amount:");
             transferNo = parseInt(transferNo);
             if (transferNo > account1.balance) {
@@ -87,11 +93,12 @@ let account3 = {
                 account3.lastName = prompt("Enter the recipient's last name:");
                 account3.bankno = prompt("Enter the recipient's Account Number:");
                 account3.balance = account3.balance + transferNo;
-                account3.balance = account3.balance - transferNo;
-                alert("Transferred succesfully");
+                account1.balance = account1.balance - transferNo;
+                alert("Transferred successfully");
             }
-
-        } else if (choice === 5) {
+        
+        } 
+        else if (choice === 5) {
             break;
         } else {
             alert("Wrong input. Try again!");
